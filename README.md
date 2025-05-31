@@ -1,6 +1,6 @@
-# Generative AI Project Template
+# ViFactCheck Plugin 
 
-A structured template for building robust generative AI applications, with modular organization and best practices built-in.
+A structured for building ViFactCheck Plugin.
 
 ![genai_project](https://github.com/honestsoul/generative_ai_project/blob/96dae125f58ede47f1bc3034790498f103903772/examples/genai_project.jpg)
 

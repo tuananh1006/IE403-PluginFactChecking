@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ViFactCheck</title>
+  <style>
+    body {
+      min-width: 320px;
+      min-height: 400px;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      color: #d32f2f;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #1565c0;
+    }
+
+    pre.result-box {
+      background-color: #f1f1f1;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      border: 1px dashed #ccc;
+    }
+
+    .summary-tab-bar {
+      display: flex;
+      justify-content: space-around;
+      margin: 12px 0;
+    }
+
+    .tab-button {
+      flex: 1;
+      margin: 0 5px;
+      padding: 8px;
+      font-weight: bold;
+      font-size: 13px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .support-tab {
+      background-color: #e0f7e9;
+      color: #2e7d32;
+      border: 1px solid #a5d6a7;
+    }
+
+    .refute-tab {
+      background-color: #ffebee;
+      color: #c62828;
+      border: 1px solid #ef9a9a;
+    }
+
+    .tab-button:hover {
+      opacity: 0.85;
+    }
+
+    .evidence-item {
+      margin-bottom: 15px;
+    }
+
+    .evidence-item p {
+      margin: 5px 0 0 0;
+    }
+
+    .evidence-item a {
+      color: #1976d2;
+      text-decoration: none;
+    }
+
+    .evidence-item a:hover {
+      text-decoration: underline;
+    }
+
+    hr {
+      border-top: 1px dashed #ccc;
+    }
+
+    .suggest-btn {
+    margin-top: 8px;
+    padding: 6px 10px;
+    font-size: 13px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .suggest-btn:hover {
+    background-color: #d32f2f;
+  }
+
+  </style>
+</head>
+<body>
+  <h2>ViFactCheck</h2>
+
+  <div class="section">
+    <label for="aiModel">Chọn mô hình AI</label>
+    <select id="aiModel">
+      <option value="Gemini">Gemini</option>
+      <option value="ChatGPT">ChatGPT</option>
+      <option value="Claude">Claude</option>
+    </select>
+  </div>
+
+  <div class="section">
+    <label for="claimInput">Nhập thông tin cần kiểm chứng</label>
+    <textarea id="claimInput" rows="4" placeholder="Ví dụ: Việt Nam là nước xuất khẩu gạo lớn nhất thế giới"></textarea>
+    <button id="checkClaimInput">Kiểm chứng</button>
+  </div>
+
+  <pre id="resultDisplay" class="result-box">Nhập đoạn văn bạn cần kiểm chứng</pre>
+
+  <div id="evidenceNav" class="summary-tab-bar" style="display: none;">
+    <button id="btnSupport" class="tab-button support-tab">
+      🟩 SUPPORTS (<span id="countSupport">0</span>)
+    </button>
+    <button id="btnRefute" class="tab-button refute-tab">
+      🟥 REFUTES (<span id="countRefute">0</span>)
+    </button>
+  </div>
+
+  <div id="evidenceList" class="result-box" style="display: none;"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
