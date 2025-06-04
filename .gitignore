@@ -33,9 +33,4 @@ __pycache__/
 .DS_Store
 
 # local
-weaviate_data
-weaviate_data.zip
-rerank
-matplotlib_perf
-perf
-Makefile
+model_pho_bert_base.pth
