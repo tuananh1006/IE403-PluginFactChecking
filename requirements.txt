@@ -3,3 +3,6 @@ uvicorn[standard]
 pydantic
 motor
 python-dotenv
+transformers
+torch
+json-log-formatter
