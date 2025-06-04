@@ -1,50 +1,41 @@
-# Byte-compiled / cache files
+.venv
+.env
+venv
+
+settings-me.yaml
+weaviate_query.ipynb
+test_1.ipynb
+
+.ruff_cache
+.pytest_cache
+.mypy_cache
+
+# byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*.so
-*.pyd
-*.pyo
-*.pkl
-*.sqlite3
-*.db
-*.log
 
-# Editor & system files
-*.DS_Store
-*.swp
-*.swo
+# unit tests / coverage reports
+/tests-results.xml
+/.coverage
+/coverage.xml
+/htmlcov/
+
+# pyenv
+/.python-version
+
+# IDE
 .idea/
 .vscode/
-*.bak
+/.run/
+.fleet/
 
-# Environment
-.env
-.venv/
-venv/
-env/
-*.env
-
-# Logs
-app/logs/
-*.log
-
-# Model weights / checkpoints
-app/models/weights/
-*.pth
-*.bin
-
-# Docker
-*.pid
-*.sock
-*.tar
-docker-compose.override.yml
-
-# Output
-*.zip
-*.gz
-
-# Ignore notebooks if any
-*.ipynb_checkpoints/
-
-# MacOS metadata
+# macOS
 .DS_Store
+
+# local
+weaviate_data
+weaviate_data.zip
+rerank
+matplotlib_perf
+perf
+Makefile
