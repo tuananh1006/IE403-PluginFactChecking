@@ -1,7 +1,26 @@
 from fastapi import FastAPI
 from app.routers import factcheck, claim_detection, evidence_retrieval, veracity_prediction
+import os
+from app.core.veracity_predictor import VeracityPredictor
+# main.py
+import logging
+import json_log_formatter
 
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
+#PORT 9000
 app = FastAPI(title="Fact Check Editor API")
+
+@app.on_event("startup")
+def load_model_once():
+    #Logging
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
+    logger.info("Starting Fact Check Editor API")
+    logger.info("Loading model...")
+    model_path = "C://Users//ADMIN//Desktop//IE403-PluginFactChecking//app//models//weights//model_pho_bert_base.pth"
+    predictor = VeracityPredictor(model_path)
+    app.veracity_predictor = predictor  # Attach vào app
+    logger.info("Model loaded successfully")
 
 # Đăng ký các router
 app.include_router(factcheck.router, prefix="/api/fact-check", tags=["Fact Check"])

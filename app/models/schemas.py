@@ -16,13 +16,11 @@ class EvidenceResponse(BaseModel):
     evidence: List[str]
 
 class VeracityRequest(BaseModel):
-    claim: str
-    evidence: List[str]
+    claim: str =""
+    evidence: str =""
 
 class VeracityResponse(BaseModel):
     label: str
-    confidence: float
-    explanation: Optional[str]
 
 class FactCheckRequest(BaseModel):
     text: str
