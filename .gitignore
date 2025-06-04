@@ -33,4 +33,4 @@ __pycache__/
 .DS_Store
 
 # local
-model_pho_bert_base.pth
+model_pho_bert_base.pthapp/models/weights/*.pth
